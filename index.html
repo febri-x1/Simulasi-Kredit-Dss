@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Penunjang Keputusan Kredit Motor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <form action="sendToDb.php" method="POST" onsubmit="return hitungSimulasi()">
+
+
+        <div class="container">
+            <h1>Sistem Penunjang Keputusan Kredit Motor</h1>
+
+            <div class="form-group">
+                <label for="userId">User Id </label>
+                <input type="text" id="txtUserId" name="txtUserId" placeholder="Masukan User ID Anda" required>
+            </div>
+
+            <div class="form-group">
+                <label for="hargaMotor">Harga Motor (Rp)</label>
+                <input type="number" id="txtHargaMotor" name="txtHargaMotor" placeholder="Contoh: 15000000" required>
+            </div>
+
+            <div class="form-group">
+                <label for="uangMuka">Uang Muka (Rp)</label>
+                <input type="number" id="txtUangMuka" name="txtUangMuka" placeholder="Contoh: 3000000" required>
+            </div>
+
+            <div class="form-group">
+                <label for="tenor">Tenor (bulan)</label>
+                <select id="txtTenor" name="txtTenor" required>
+                    <option value="12">12 Bulan</option>
+                    <option value="24">24 Bulan</option>
+                    <option value="36">36 Bulan</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="bunga">Suku Bunga Tahunan (%)</label>
+                <input type="number" id="txtBunga" name="txtBunga" placeholder="Contoh: 5.5" required>
+            </div>
+
+            <div class="form-group">
+                <label for="gajiBulanan">Gaji Bulanan (Rp)</label>
+                <input type="number" id="txtGajiBulanan" name="txtGajiBulanan" placeholder="Contoh: 4000000" required>
+            </div>
+
+            <button class="btn" id="btn" name="btn" onclick="hitungSimulasi()">Hitung Simulasi</button>
+
+            <div class="result" id="hasilSimulasi" style="display: none;"></div>
+            <div class="alert" id="peringatan" style="display: none;">⚠ PERINGATAN: Cicilan bulanan melebihi 30% dari
+                gaji bulanan Anda!, Naikkan Uang Muka atau Tambahkan Tenor Kredit Anda</div>
+        </div>
+
+        <script src="hitungSimulasi.js"></script>
+
+    </form>
+
+
+
+
+</body>
+
+</html>
